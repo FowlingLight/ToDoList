@@ -1,7 +1,9 @@
-package com.griffith.horiot.assignment1;
+package com.griffith.horiot.assignment1.Activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.griffith.horiot.assignment1.R;
 
 public class MainActivity extends AppCompatActivity {
 
