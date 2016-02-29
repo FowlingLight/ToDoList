@@ -1,7 +1,7 @@
 package com.griffith.horiot.assignment1.Activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.griffith.horiot.assignment1.R;
 
