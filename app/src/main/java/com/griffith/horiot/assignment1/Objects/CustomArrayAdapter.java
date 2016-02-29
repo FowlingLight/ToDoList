@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.griffith.horiot.assignment1.R;
@@ -47,8 +48,15 @@ public class CustomArrayAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) convert_view.getTag();
         }
+
         holder.checkBox.setChecked(al_items.get(position).isChecked());
         holder.textView.setText(al_items.get(position).getTaskName());
+        holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                al_items.get(position).setChecked(isChecked);
+            }
+        });
 
         return convert_view;
     }
@@ -61,19 +69,14 @@ public class CustomArrayAdapter extends BaseAdapter {
         this.al_items.remove(pos);
     }
 
-    // overridden method that will tell the listview how many items of data there is
-    // to be displayed
     public int getCount() {
         return al_items.size();
     }
 
-    // returns the rowid of the item at the given position. Given that we are using an
-    // array list the rowid will be equal to the index of the item
     public long getItemId(int position) {
         return position;
     }
 
-    // overridden method that will return the item at the given position in the list
     public Object getItem(int position) {
         return al_items.get(position);
     }

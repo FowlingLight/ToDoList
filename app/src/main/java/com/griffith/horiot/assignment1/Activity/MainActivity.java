@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView textView;
     private ListView listView;
     private EditText editText;
-    private CheckBox checkBox;
     private Button button;
     private CustomArrayAdapter customArrayAdapter;
 
@@ -33,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
         this.listView = (ListView) findViewById(R.id.todo_list);
         this.editText = (EditText) findViewById(R.id.add_task_name);
         this.button = (Button) findViewById(R.id.add_task_button);
-        this.checkBox = (CheckBox) findViewById(R.id.item_checkbox);
 
         this.customArrayAdapter = new CustomArrayAdapter(this);
         this.listView.setAdapter(this.customArrayAdapter);
