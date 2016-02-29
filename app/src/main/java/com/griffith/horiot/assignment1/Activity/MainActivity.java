@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
         this.customArrayAdapter = new CustomArrayAdapter(this);
         this.listView.setAdapter(this.customArrayAdapter);
 
-        // add in a listener for the edit text to create new items in our list view
         this.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
                     customArrayAdapter.addItem(new ToDoItem(editText.getText().toString()));
                     customArrayAdapter.notifyDataSetChanged();
                     editText.setText("");
-                    //textView.setText(editText.getText());
                 }
             }
         });
