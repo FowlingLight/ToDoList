@@ -31,34 +31,42 @@ public class CustomArrayAdapter extends BaseAdapter {
         this.al_items = new ArrayList<>();
     }
 
-    public View getView(final int position, View convert_view, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
 
-        if (convert_view == null) {
+        if (convertView == null) {
             holder = new ViewHolder();
 
             LayoutInflater inflator = (LayoutInflater)
                     context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-            convert_view = inflator.inflate(R.layout.list_item, parent, false);
-            holder.checkBox = (CheckBox) convert_view.findViewById(R.id.item_checkbox);
-            holder.textView = (TextView) convert_view.findViewById(R.id.item_text);
+            convertView = inflator.inflate(R.layout.list_item, parent, false);
+            holder.checkBox = (CheckBox) convertView.findViewById(R.id.item_checkbox);
+            holder.textView = (TextView) convertView.findViewById(R.id.item_text);
 
-            convert_view.setTag(holder);
+            holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    int pos = (Integer) buttonView.getTag();
+                    al_items.get(pos).setChecked(buttonView.isChecked());
+                }
+            });
+
+            convertView.setTag(holder);
+            convertView.setTag(R.id.item_text, holder.textView);
+            convertView.setTag(R.id.item_checkbox, holder.checkBox);
+
+            convertView.setTag(holder);
         } else {
-            holder = (ViewHolder) convert_view.getTag();
+            holder = (ViewHolder) convertView.getTag();
         }
+
+        holder.checkBox.setTag(position);
 
         holder.checkBox.setChecked(al_items.get(position).isChecked());
         holder.textView.setText(al_items.get(position).getTaskName());
-        holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                al_items.get(position).setChecked(isChecked);
-            }
-        });
 
-        return convert_view;
+        return convertView;
     }
 
     public void addItem(ToDoItem item) {
