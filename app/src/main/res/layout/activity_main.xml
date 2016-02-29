@@ -3,15 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
     tools:context=".Activity.MainActivity">
 
     <ListView
         android:id="@+id/todo_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/edit_layout" />
+        android:layout_above="@+id/edit_layout"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin" />
 
     <LinearLayout
         android:id="@+id/edit_layout"
@@ -20,7 +20,9 @@
         android:layout_alignParentBottom="true"
         android:focusable="true"
         android:focusableInTouchMode="true"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin">
 
         <EditText
             android:id="@+id/add_task_name"
@@ -29,9 +31,9 @@
             android:layout_weight="3"
             android:hint="@string/hint_add_task"
             android:inputType="text"
-            android:nextFocusUp="@id/add_task_name"
+            android:maxLines="5"
             android:nextFocusDown="@id/add_task_name"
-            android:maxLines="5" />
+            android:nextFocusUp="@id/add_task_name" />
 
         <Button
             android:id="@+id/add_task_button"
