@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
                     customArrayAdapter.addItem(new ToDoItem(editText.getText().toString()));
                     customArrayAdapter.notifyDataSetChanged();
                     editText.setText("");
+                    listView.setSelection(customArrayAdapter.getCount() - 1);
                 }
             }
         });
