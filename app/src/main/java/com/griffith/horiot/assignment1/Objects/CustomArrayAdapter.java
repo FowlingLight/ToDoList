@@ -15,7 +15,6 @@ import java.util.ArrayList;
 /**
  * Created by horiot_b_to_chage on 29/02/2016 for Code and Learn
  */
-
 public class CustomArrayAdapter extends BaseAdapter {
 
     private Context context;
@@ -31,7 +30,7 @@ public class CustomArrayAdapter extends BaseAdapter {
         this.al_items = new ArrayList<>();
     }
 
-    public View getView(int position, View convert_view, ViewGroup parent) {
+    public View getView(final int position, View convert_view, ViewGroup parent) {
         ViewHolder holder;
 
         if (convert_view == null) {
@@ -56,6 +55,10 @@ public class CustomArrayAdapter extends BaseAdapter {
 
     public void addItem(ToDoItem item) {
         this.al_items.add(item);
+    }
+
+    public void removeItem(int pos) {
+        this.al_items.remove(pos);
     }
 
     // overridden method that will tell the listview how many items of data there is
