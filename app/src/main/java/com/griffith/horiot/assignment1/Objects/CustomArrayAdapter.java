@@ -31,6 +31,11 @@ public class CustomArrayAdapter extends BaseAdapter {
         this.al_items = new ArrayList<>();
     }
 
+    public CustomArrayAdapter(Context c, ArrayList<ToDoItem> list) {
+        this.context = c;
+        this.al_items = list;
+    }
+
     public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
 
@@ -87,5 +92,9 @@ public class CustomArrayAdapter extends BaseAdapter {
 
     public Object getItem(int position) {
         return al_items.get(position);
+    }
+
+    public ArrayList<ToDoItem> getAllItems() {
+        return al_items;
     }
 }

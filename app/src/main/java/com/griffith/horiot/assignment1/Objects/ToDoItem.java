@@ -27,4 +27,12 @@ public class ToDoItem {
     public void setTaskName(String taskName) {
         this.taskName = taskName;
     }
+
+    @Override
+    public String toString() {
+        return "ToDoItem{" +
+                "checked=" + this.checked +
+                ", taskName='" + this.taskName + '\'' +
+                '}';
+    }
 }
