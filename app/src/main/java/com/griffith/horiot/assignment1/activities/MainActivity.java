@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
     public void onStop() {
         SharedPreferences.Editor editor = this.pref.edit();
         editor.putString("list", gson.toJson(this.customArrayAdapter.getAllItems()));
-        editor.commit();
+        editor.apply();
         super.onStop();
     }
 }
